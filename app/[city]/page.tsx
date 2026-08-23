@@ -4,6 +4,12 @@ import { getCity } from "@/lib/cities";
 
 type Props = { params: Promise<{ city: string }> };
 
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return ["istanbul", "ankara", "izmir"].map((city) => ({ city }));
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const city = getCity((await params).city);
   return {
