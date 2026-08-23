@@ -5,6 +5,7 @@ import { TeachersSection } from "./TeachersSection";
 import { CourseTypesSection } from "./CourseTypesSection";
 import { ReviewsPlatformSection } from "./ReviewsPlatformSection";
 import { DistrictCoursesSection } from "./DistrictCoursesSection";
+import { CefrProgramsSection } from "./CefrProgramsSection";
 
 const Shield = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -75,6 +76,7 @@ export function CityHero({ city }: { city: City }) {
       <ReviewsPlatformSection city={city.name} />
       <DistrictCoursesSection city={city.name} />
       <TeachersSection city={city.name} />
+      <CefrProgramsSection />
     </main>
   );
 }
