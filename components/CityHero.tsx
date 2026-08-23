@@ -7,6 +7,7 @@ import { ReviewsPlatformSection } from "./ReviewsPlatformSection";
 import { DistrictCoursesSection } from "./DistrictCoursesSection";
 import { CefrProgramsSection } from "./CefrProgramsSection";
 import { EnrollmentProcessSection } from "./EnrollmentProcessSection";
+import { PricingSection } from "./PricingSection";
 
 const Shield = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -79,6 +80,7 @@ export function CityHero({ city }: { city: City }) {
       <TeachersSection city={city.name} />
       <CefrProgramsSection />
       <EnrollmentProcessSection city={city.name} />
+      <PricingSection city={city.name} />
     </main>
   );
 }
