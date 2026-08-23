@@ -43,10 +43,34 @@ const faqByOffer: Record<string, { title: string; text: string }[]> = {
   ],
 };
 
+const extraFaqs: Record<string, { title: string; text: string }[]> = {
+  "Genel İngilizce": [
+    { title: "Genel İngilizce ücretine neler dahil?", text: "Canlı dersler, temel eğitim materyalleri, dijital platform erişimi, ilerleme takibi ve konuşma kulübü programa dahildir." },
+    { title: "Kur değiştiğinde ücret değişir mi?", text: "Standart grup programında kur ilerledikçe aynı dönem planı korunur; ders yoğunluğu veya eğitim modeli değişirse yeni teklif paylaşılır." },
+  ],
+  "IELTS / TOEFL": [
+    { title: "Deneme sınavları fiyata dahil mi?", text: "Program kapsamındaki deneme sınavları, puan analizi ve writing geri bildirimleri başlangıç teklifine dahildir." },
+    { title: "Hedef puana göre farklı paket var mı?", text: "Mevcut skorunuz, hedefiniz ve sınav tarihinize göre standart veya yoğun hazırlık planı oluşturulabilir." },
+  ],
+  "İş İngilizcesi": [
+    { title: "İş İngilizcesi materyalleri ücrete dahil mi?", text: "Ders dokümanları, sektör senaryoları, sunum çalışmaları ve eğitmen geri bildirimleri program ücretine dahildir." },
+    { title: "Sektöre özel içerik eklenince fiyat değişir mi?", text: "Grup programındaki temel uyarlamalar dahildir; kapsamlı şirket içeriği veya bire bir çalışma gerektiğinde özel teklif hazırlanır." },
+  ],
+  "Online İngilizce": [
+    { title: "Online platform erişimi ayrıca ücretli mi?", text: "Hayır. Aktif program süresince canlı sınıf, dijital materyaller ve çalışma paneli erişimi ücrete dahildir." },
+    { title: "Online dersten yüz yüze programa geçilebilir mi?", text: "Kontenjan ve seviye uygun olduğunda geçiş yapılabilir; iki program arasındaki ücret farkı yeni plana yansıtılır." },
+  ],
+  "Bire Bir Eğitim": [
+    { title: "Bire bir derste materyal ücrete dahil mi?", text: "Kişiselleştirilmiş ders dokümanları, ödevler ve eğitmen geri bildirimleri ders veya paket ücretine dahildir." },
+    { title: "Ders iptalinde ücret yanar mı?", text: "Belirlenen süre içinde haber verilen dersler eğitmen uygunluğuna göre yeniden planlanabilir; kesin koşullar teklif sırasında paylaşılır." },
+  ],
+};
+
 export function PricingSection({ city }: { city: string }) {
   const [selected, setSelected] = useState(0);
   const [open, setOpen] = useState(0);
   const offer = offers[selected];
+  const faqs = [...faqByOffer[offer.name], ...extraFaqs[offer.name]];
 
   return (
     <section className="pricingSection" id="fiyatlar" aria-labelledby="pricing-title">
@@ -68,8 +92,12 @@ export function PricingSection({ city }: { city: string }) {
 
       <p className="priceDisclaimer">Gösterilen tutarlar örnek başlangıç fiyatlarıdır. Güncel ücret; dönem, kampanya, ders saati ve programa göre kesinleşir.</p>
 
+      <div className="faqProgramTabs" role="tablist" aria-label="Sık sorulan sorular için programı seçin">
+        {offers.map((item, index) => <button role="tab" aria-selected={selected === index} className={selected === index ? "active" : ""} key={item.name} onClick={() => { setSelected(index); setOpen(0); }}><strong>{item.name}</strong><span>{item.price} · {item.duration}</span><small>{item.capacity}</small></button>)}
+      </div>
+
       <div className="paymentOptions">
-        {faqByOffer[offer.name].map((item, index) => <article className={open === index ? "active" : ""} key={item.title}><button onClick={() => setOpen(open === index ? -1 : index)} aria-expanded={open === index}><span>{String(index + 1).padStart(2, "0")}</span><strong>{item.title}</strong><i>{open === index ? "−" : "+"}</i></button>{open === index && <p>{item.text}</p>}</article>)}
+        {faqs.map((item, index) => <article className={open === index ? "active" : ""} key={item.title}><button onClick={() => setOpen(open === index ? -1 : index)} aria-expanded={open === index}><span>{String(index + 1).padStart(2, "0")}</span><strong>{item.title}</strong><i>{open === index ? "−" : "+"}</i></button>{open === index && <div className="paymentAnswer"><p>{item.text}</p>{index === 0 && <a href="#seviye-testi">{offer.name} için teklif alın <span>↗</span></a>}</div>}</article>)}
       </div>
     </section>
   );

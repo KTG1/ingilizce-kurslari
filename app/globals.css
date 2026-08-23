@@ -435,7 +435,18 @@ h1 em { display: block; margin-top: 18px; color: var(--blue); font-size: .58em; 
 .priceSummary a { min-height: 48px; margin-top: auto; padding: 0 15px; display: flex; align-items: center; justify-content: space-between; border-radius: 8px; background: var(--blue); color: white; font-size: .69rem; font-weight: 900; }
 .priceSummary a:hover { background: var(--ink); }
 .priceDisclaimer { margin: 13px 0 0; color: #929cad; font-size: .59rem; line-height: 1.5; }
-.paymentOptions { margin-top: 38px; border: 1px solid var(--line); border-radius: 16px 16px 16px 5px; overflow: hidden; background: white; }
+.faqProgramTabs { display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 38px; overflow: hidden; border: 1px solid var(--line); border-radius: 14px 14px 0 0; background: white; }
+.faqProgramTabs button { min-height: 82px; padding: 13px 14px; display: flex; align-items: flex-start; justify-content: center; flex-direction: column; border: 0; border-right: 1px solid var(--line); background: white; color: var(--ink); text-align: left; cursor: pointer; }
+.faqProgramTabs button:last-child { border-right: 0; }
+.faqProgramTabs button strong { font-size: .68rem; }
+.faqProgramTabs button span { margin-top: 6px; color: var(--blue); font-size: .57rem; font-weight: 850; }
+.faqProgramTabs button small { margin-top: 4px; color: #929cad; font-size: .53rem; }
+.faqProgramTabs button:hover { background: #f5f8fd; }
+.faqProgramTabs button.active { background: var(--ink); color: white; }
+.faqProgramTabs button.active span { color: var(--sun); }
+.faqProgramTabs button.active small { color: #a9b7d0; }
+.faqProgramTabs button:focus-visible, .paymentAnswer a:focus-visible { position: relative; z-index: 2; outline: 3px solid rgba(28,85,199,.24); outline-offset: -3px; }
+.paymentOptions { border: 1px solid var(--line); border-top: 0; border-radius: 0 0 16px 5px; overflow: hidden; background: white; }
 .paymentOptions article { border-bottom: 1px solid var(--line); }
 .paymentOptions article:last-child { border-bottom: 0; }
 .paymentOptions article.active { background: #f7f9fd; }
@@ -443,7 +454,10 @@ h1 em { display: block; margin-top: 18px; color: var(--blue); font-size: .58em; 
 .paymentOptions button > span { color: #9ca6b7; font: italic .76rem/1 Georgia, serif; }
 .paymentOptions button strong { font: 700 1.16rem/1.1 Georgia, serif; }
 .paymentOptions button i { color: var(--blue); font-size: 1.2rem; font-style: normal; }
-.paymentOptions article > p { max-width: 850px; margin: -4px 0 0; padding: 0 25px 25px 98px; color: var(--muted); font-size: .76rem; line-height: 1.65; }
+.paymentAnswer { max-width: 900px; margin: -4px 0 0; padding: 0 25px 25px 98px; }
+.paymentAnswer > p { margin: 0; color: var(--muted); font-size: .76rem; line-height: 1.65; }
+.paymentAnswer > a { width: fit-content; min-width: 220px; min-height: 46px; margin-top: 18px; padding: 0 14px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-radius: 8px; background: var(--blue); color: white; font-size: .67rem; font-weight: 900; }
+.paymentAnswer > a:hover { background: var(--ink); }
 
 .relatedSection { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 88px 0 135px; }
 .relatedHeader { max-width: 890px; }
@@ -503,6 +517,9 @@ h1 em { display: block; margin-top: 18px; color: var(--blue); font-size: .58em; 
   .priceTabs button:nth-child(-n+3) { border-bottom: 1px solid var(--line); }
   .priceSpotlight { grid-template-columns: 1fr 1fr; }
   .priceIdentity { grid-column: 1 / -1; border-right: 0 !important; border-bottom: 1px solid var(--line); }
+  .faqProgramTabs { grid-template-columns: repeat(3, 1fr); }
+  .faqProgramTabs button:nth-child(3) { border-right: 0; }
+  .faqProgramTabs button:nth-child(-n+3) { border-bottom: 1px solid var(--line); }
   .relatedTabs { grid-template-columns: repeat(3, 1fr); }
   .relatedTabs button:nth-child(3) { border-right: 0; }
   .relatedTabs button:nth-child(-n+3) { border-bottom: 1px solid var(--line); }
@@ -597,7 +614,11 @@ h1 em { display: block; margin-top: 18px; color: var(--blue); font-size: .58em; 
   .priceNumber { min-height: 210px !important; }
   .priceSummary { min-height: 240px !important; }
   .paymentOptions button { padding: 17px 20px; grid-template-columns: 38px 1fr auto; gap: 10px; }
-  .paymentOptions article > p { padding: 0 20px 22px; }
+  .faqProgramTabs { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; }
+  .faqProgramTabs button { min-width: 175px; border-right: 1px solid var(--line) !important; border-bottom: 0 !important; scroll-snap-align: start; }
+  .faqProgramTabs button:last-child { border-right: 0 !important; }
+  .paymentAnswer { padding: 0 20px 22px; }
+  .paymentAnswer > a { width: 100%; }
   .relatedSection { width: min(100% - 28px, 1180px); padding: 66px 0 92px; }
   .relatedHeader h2 { font-size: 2.7rem; }
   .relatedTabs { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; }
