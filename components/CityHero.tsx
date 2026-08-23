@@ -4,6 +4,7 @@ import { LeadForm } from "./LeadForm";
 import { TeachersSection } from "./TeachersSection";
 import { CourseTypesSection } from "./CourseTypesSection";
 import { ReviewsPlatformSection } from "./ReviewsPlatformSection";
+import { DistrictCoursesSection } from "./DistrictCoursesSection";
 
 const Shield = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -72,6 +73,7 @@ export function CityHero({ city }: { city: City }) {
       </section>
       <CourseTypesSection city={city.name} />
       <ReviewsPlatformSection city={city.name} />
+      <DistrictCoursesSection city={city.name} />
       <TeachersSection city={city.name} />
     </main>
   );

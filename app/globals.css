@@ -245,6 +245,49 @@ h1 em { display: block; margin-top: 18px; color: var(--blue); font-size: .58em; 
 .phoneScreen > small { display: block; color: #8490a5; font-size: .53rem; }
 .phoneScreen > button { width: 100%; min-height: 36px; margin-top: 13px; padding: 0 10px; display: flex; align-items: center; justify-content: space-between; border: 0; border-radius: 7px; background: var(--ink); color: white; font-size: .58rem; font-weight: 850; }
 
+.districtSection { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 104px 0 34px; }
+.districtHeader { max-width: 840px; }
+.districtHeader h2 { margin: 0; font: 700 clamp(2.65rem, 4.5vw, 4.65rem)/.98 Georgia, serif; letter-spacing: -.05em; }
+.districtHeader > p:last-child { max-width: 720px; margin: 22px 0 0; color: var(--muted); font-size: .97rem; line-height: 1.72; }
+.districtFilters { display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 35px; overflow: hidden; border: 1px solid var(--line); border-radius: 13px 13px 0 0; background: white; }
+.districtFilters button { min-height: 64px; padding: 0 18px; display: flex; align-items: center; justify-content: center; gap: 10px; border: 0; border-right: 1px solid var(--line); background: white; color: #5d697e; font-size: .78rem; font-weight: 900; cursor: pointer; transition: background .2s ease, color .2s ease; }
+.districtFilters button:last-child { border-right: 0; }
+.districtFilters button span { color: #a5aebd; font: italic .72rem/1 Georgia, serif; }
+.districtFilters button:hover { background: #f4f7fc; color: var(--ink); }
+.districtFilters button.active { background: var(--ink); color: white; }
+.districtFilters button.active span { color: var(--sun); }
+.districtFilters button:focus-visible, .districtActions a:focus-visible, .districtQuestion summary:focus-visible { position: relative; z-index: 2; outline: 3px solid rgba(28,85,199,.24); outline-offset: -3px; }
+.districtCard { overflow: hidden; border: 1px solid var(--line); border-top: 0; border-radius: 0 0 20px 6px; background: white; box-shadow: 0 18px 50px rgba(18,33,63,.08); }
+.districtTopline { min-height: 104px; padding: 23px 30px; display: grid; grid-template-columns: .72fr 1.28fr; gap: 35px; align-items: center; border-bottom: 1px solid var(--line); }
+.districtTopline > div { display: flex; align-items: baseline; gap: 15px; }
+.districtTopline span { color: #9aa4b5; font-size: .61rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+.districtTopline h3 { margin: 0; font: 700 2rem/1 Georgia, serif; letter-spacing: -.035em; }
+.districtTopline > p { margin: 0; display: flex; align-items: center; justify-content: flex-end; gap: 13px; color: #657188; font-size: .74rem; }
+.districtTopline > p strong { color: var(--blue); font-size: .82rem; }
+.districtTopline > p i { width: 4px; height: 4px; border-radius: 50%; background: var(--sun); }
+.districtBody { display: grid; grid-template-columns: 1.35fr .82fr .83fr; }
+.districtBody > div { min-height: 260px; padding: 30px; border-right: 1px solid var(--line); }
+.districtBody > div:last-child { border-right: 0; }
+.districtSummary { display: flex; flex-direction: column; }
+.districtSummary > p { max-width: 520px; margin: 0; color: #56647a; font-size: .85rem; line-height: 1.73; }
+.districtActions { display: grid; grid-template-columns: 1.15fr .85fr; gap: 9px; margin-top: auto; }
+.districtActions a { min-height: 48px; padding: 0 13px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 8px; color: var(--ink); font-size: .68rem; font-weight: 900; text-align: center; }
+.districtActions a:hover { border-color: var(--ink); }
+.districtActions .districtPrimary { justify-content: space-between; border-color: var(--blue); background: var(--blue); color: white; }
+.districtActions .districtPrimary:hover { border-color: var(--ink); background: var(--ink); }
+.districtList > span { display: block; margin-bottom: 20px; color: var(--ink); font: 700 1.08rem/1.2 Georgia, serif; }
+.districtList ul { margin: 0; padding: 0; list-style: none; }
+.districtList li { margin: 0 0 13px; display: flex; align-items: flex-start; gap: 9px; color: #59667c; font-size: .72rem; line-height: 1.45; }
+.districtList li i { color: #249065; font-style: normal; font-weight: 900; }
+.districtList.audience { background: #f6f8fc; }
+.districtList.audience li i { color: var(--blue); }
+.districtQuestion { border-top: 1px solid var(--line); }
+.districtQuestion summary { min-height: 70px; padding: 18px 30px; display: flex; align-items: center; justify-content: space-between; gap: 20px; color: var(--ink); font-size: .82rem; font-weight: 850; cursor: pointer; list-style: none; }
+.districtQuestion summary::-webkit-details-marker { display: none; }
+.districtQuestion summary span { color: var(--blue); font-size: 1.35rem; transition: transform .2s ease; }
+.districtQuestion[open] summary span { transform: rotate(45deg); }
+.districtQuestion p { margin: -7px 0 0; padding: 0 30px 24px; color: var(--muted); font-size: .78rem; line-height: 1.6; }
+
 .teachersSection { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 92px 0 110px; }
 .teachersHeader { display: grid; grid-template-columns: 1.1fr .9fr; gap: 80px; align-items: end; padding-bottom: 34px; border-bottom: 1px solid var(--line); }
 .sectionKicker { margin: 0 0 14px; color: var(--blue); font-size: .72rem; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
@@ -303,6 +346,14 @@ h1 em { display: block; margin-top: 18px; color: var(--blue); font-size: .58em; 
   .platformSection { grid-template-columns: 1fr; padding: 58px 42px; }
   .platformIntro { max-width: 650px; }
   .phoneStage { min-height: 440px; transform: scale(.92); transform-origin: left top; }
+  .districtFilters { grid-template-columns: repeat(3, 1fr); border-radius: 13px 13px 0 0; }
+  .districtFilters button:nth-child(3) { border-right: 0; }
+  .districtFilters button:nth-child(-n+3) { border-bottom: 1px solid var(--line); }
+  .districtFilters button:nth-child(4) { border-right: 1px solid var(--line); }
+  .districtTopline { grid-template-columns: 1fr; gap: 11px; }
+  .districtTopline > p { justify-content: flex-start; flex-wrap: wrap; }
+  .districtBody { grid-template-columns: 1fr 1fr; }
+  .districtSummary { grid-column: 1 / -1; min-height: 220px !important; border-right: 0 !important; border-bottom: 1px solid var(--line); }
 }
 
 @media (max-width: 650px) {
@@ -341,6 +392,20 @@ h1 em { display: block; margin-top: 18px; color: var(--blue); font-size: .58em; 
   .storeButtons a { width: 100%; }
   .phoneStage { min-height: 410px; margin-top: 28px; transform: none; overflow-x: auto; display: grid; grid-auto-flow: column; grid-auto-columns: 172px; gap: 12px; scroll-snap-type: x mandatory; }
   .phoneMock { position: relative; left: auto; top: auto; width: 172px; height: 365px; transform: none !important; scroll-snap-align: start; }
+  .districtSection { width: min(100% - 28px, 1180px); padding: 76px 0 12px; }
+  .districtHeader h2 { font-size: 2.7rem; }
+  .districtFilters { display: flex; overflow-x: auto; border-radius: 12px 12px 0 0; scroll-snap-type: x mandatory; }
+  .districtFilters button { min-width: 145px; border-right: 1px solid var(--line) !important; border-bottom: 0 !important; scroll-snap-align: start; }
+  .districtFilters button:last-child { border-right: 0 !important; }
+  .districtTopline { padding: 22px 20px; }
+  .districtTopline > div { align-items: flex-start; flex-direction: column; gap: 7px; }
+  .districtTopline h3 { font-size: 1.75rem; }
+  .districtBody { grid-template-columns: 1fr; }
+  .districtBody > div { min-height: 0; padding: 24px 20px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .districtSummary { grid-column: auto; min-height: 245px !important; }
+  .districtActions { grid-template-columns: 1fr; margin-top: 26px; }
+  .districtQuestion summary { padding: 17px 20px; }
+  .districtQuestion p { padding: 0 20px 22px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
