@@ -137,12 +137,54 @@ h1 em { display: block; margin-top: 18px; color: var(--blue); font-size: .58em; 
 .trustItem { min-height: 68px; padding: 18px 24px; display: flex; align-items: center; gap: 10px; border-right: 1px solid var(--line); color: #3b4961; font-size: .78rem; font-weight: 700; }
 .trustItem svg { width: 19px; height: 19px; fill: none; stroke: var(--blue); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto; }
 
+.teachersSection { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 92px 0 110px; }
+.teachersHeader { display: grid; grid-template-columns: 1.1fr .9fr; gap: 80px; align-items: end; padding-bottom: 34px; border-bottom: 1px solid var(--line); }
+.sectionKicker { margin: 0 0 14px; color: var(--blue); font-size: .72rem; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+.teachersHeader h2 { max-width: 700px; margin: 0; font: 700 clamp(2.5rem, 4.4vw, 4.6rem)/.98 Georgia, serif; letter-spacing: -.05em; }
+.teachersHeader > p { margin: 0; color: var(--muted); font-size: .96rem; line-height: 1.72; }
+.teacherTools { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin: 28px 0 14px; }
+.teacherFilters { display: flex; flex-wrap: wrap; gap: 8px; }
+.teacherFilters button { padding: 9px 12px; border: 1px solid var(--line); border-radius: 999px; background: white; color: #56637a; font-size: .73rem; font-weight: 800; cursor: pointer; }
+.teacherFilters button span { margin-left: 4px; color: #9aa4b5; }
+.teacherFilters button.active { border-color: var(--ink); background: var(--ink); color: white; }
+.teacherFilters button.active span { color: var(--sun); }
+.teacherFilters button:focus-visible, .teacherSearch input:focus-visible { outline: 3px solid rgba(28,85,199,.2); outline-offset: 2px; }
+.teacherSearch { position: relative; flex: 0 0 270px; }
+.teacherSearch input { width: 100%; min-height: 42px; padding: 0 38px 0 13px; border: 1px solid var(--line); border-radius: 10px; background: white; color: var(--ink); font-size: .78rem; outline: none; }
+.teacherSearch i { position: absolute; right: 13px; top: 9px; color: var(--blue); font-size: 1.1rem; font-style: normal; }
+.teacherCount { margin: 0 0 16px; color: #909bad; font-size: .7rem; font-weight: 700; letter-spacing: .04em; }
+.teacherRail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(285px, 31%); gap: 16px; overflow-x: auto; padding: 4px 3px 24px; scroll-snap-type: x mandatory; scrollbar-color: var(--ink) transparent; }
+.teacherCard { --teacher-accent: var(--blue); display: flex; min-height: 550px; flex-direction: column; overflow: hidden; scroll-snap-align: start; border: 1px solid var(--line); border-top: 4px solid var(--teacher-accent); border-radius: 18px 18px 18px 5px; background: white; box-shadow: 0 10px 30px rgba(18,33,63,.06); transition: transform .25s ease, box-shadow .25s ease; }
+.teacherCard:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(18,33,63,.12); }
+.teacherPhoto { position: relative; height: 215px; overflow: hidden; background: color-mix(in srgb, var(--teacher-accent) 14%, white); }
+.teacherPhoto img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center 18%; }
+.teacherPhoto > span:not(.teacherStatus) { height: 100%; display: grid; place-items: center; color: var(--teacher-accent); font: 700 4.2rem/1 Georgia, serif; }
+.teacherStatus { position: absolute; left: 14px; bottom: 13px; display: inline-flex; align-items: center; gap: 7px; padding: 7px 10px; border-radius: 999px; background: rgba(11,23,48,.88); color: white; font-size: .66rem; font-weight: 800; backdrop-filter: blur(7px); }
+.teacherStatus i { width: 7px; height: 7px; border-radius: 50%; background: #5fe09b; box-shadow: 0 0 0 3px rgba(95,224,155,.17); }
+.teacherBody { display: flex; flex: 1; flex-direction: column; padding: 21px 21px 19px; }
+.teacherIndex { margin: 0 0 8px; color: var(--teacher-accent); font-size: .61rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+.teacherBody h3 { margin: 0; font: 700 1.55rem/1.1 Georgia, serif; letter-spacing: -.025em; }
+.teacherOrigin { margin: 5px 0 15px; color: #8792a5; font-size: .72rem; }
+.teacherDegree { min-height: 52px; margin: 0 0 14px; color: #758096; font-size: .72rem; line-height: 1.45; }
+.teacherDegree strong { color: var(--ink); }
+.teacherBio { margin: 0 0 15px; color: #56637a; font-size: .77rem; line-height: 1.58; }
+.teacherTags { display: flex; flex-wrap: wrap; gap: 5px; margin: auto 0 15px; padding: 0; list-style: none; }
+.teacherTags li { padding: 5px 7px; border-radius: 5px; background: color-mix(in srgb, var(--teacher-accent) 9%, white); color: var(--teacher-accent); font-size: .61rem; font-weight: 800; }
+.teacherInterests { margin: 0; padding-top: 13px; border-top: 1px solid var(--line); color: #68758a; font-size: .68rem; line-height: 1.55; }
+.teacherInterests span { display: block; margin-bottom: 3px; color: #9aa3b3; font-size: .57rem; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
+.teacherEmpty { padding: 50px 25px; border: 1px dashed #b9c3d3; border-radius: 16px; background: white; color: var(--muted); text-align: center; font-size: .86rem; }
+.srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
 @media (max-width: 920px) {
   .hero { grid-template-columns: 1fr; gap: 48px; padding-top: 55px; }
   .heroCopy { max-width: 690px; }
   .statsRow, .trustRow { grid-template-columns: 1fr 1fr; }
   .stat:nth-child(2), .trustItem:nth-child(2) { border-right: 0; }
   .stat:nth-child(-n+2), .trustItem:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .teachersHeader { grid-template-columns: 1fr; gap: 22px; }
+  .teacherTools { align-items: stretch; flex-direction: column; }
+  .teacherSearch { flex-basis: auto; width: min(100%, 420px); }
+  .teacherRail { grid-auto-columns: minmax(290px, 48%); }
 }
 
 @media (max-width: 650px) {
@@ -161,6 +203,9 @@ h1 em { display: block; margin-top: 18px; color: var(--blue); font-size: .58em; 
   .trustRow { grid-template-columns: 1fr; }
   .trustItem { border-right: 0; border-bottom: 1px solid var(--line); }
   .trustItem:last-child { border-bottom: 0; }
+  .teachersSection { width: min(100% - 28px, 1180px); padding: 68px 0 80px; }
+  .teachersHeader h2 { font-size: 2.7rem; }
+  .teacherRail { grid-auto-columns: 88%; }
 }
 
 @media (prefers-reduced-motion: reduce) {

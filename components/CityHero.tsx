@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { City } from "@/lib/cities";
 import { LeadForm } from "./LeadForm";
+import { TeachersSection } from "./TeachersSection";
 
 const Shield = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -28,7 +29,7 @@ export function CityHero({ city }: { city: City }) {
         </Link>
         <nav aria-label="Ana menü">
           <a href="#programlar">Programlar</a>
-          <a href="#neden-biz">Neden biz?</a>
+          <a href="#egitmenler">Eğitmenler</a>
           <a className="headerCta" href="#seviye-testi">Seviye testi</a>
         </nav>
       </header>
@@ -67,6 +68,7 @@ export function CityHero({ city }: { city: City }) {
           ))}
         </div>
       </section>
+      <TeachersSection city={city.name} />
     </main>
   );
 }
