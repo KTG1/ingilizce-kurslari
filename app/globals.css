@@ -176,6 +176,75 @@ h1 em { display: block; margin-top: 18px; color: var(--blue); font-size: .58em; 
 .courseHelp a { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); font-size: .74rem; font-weight: 900; white-space: nowrap; }
 .courseHelp a span { color: var(--blue); font-size: 1.1rem; }
 
+.reviewsSection { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 102px 0 76px; }
+.reviewsHeader { display: grid; grid-template-columns: 1.08fr .92fr; gap: 90px; align-items: end; padding-bottom: 32px; border-bottom: 1px solid var(--line); }
+.reviewsHeader h2 { max-width: 700px; margin: 0; font: 700 clamp(2.6rem, 4.4vw, 4.55rem)/.98 Georgia, serif; letter-spacing: -.05em; }
+.reviewsHeader > p { margin: 0; color: var(--muted); font-size: .96rem; line-height: 1.72; }
+.reviewFilters { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 12px; }
+.reviewFilters button { min-height: 38px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; background: white; color: #59667c; font-size: .7rem; font-weight: 850; cursor: pointer; }
+.reviewFilters button.active { border-color: var(--ink); background: var(--ink); color: white; }
+.reviewFilters button:focus-visible, .storeButtons a:focus-visible { outline: 3px solid rgba(28,85,199,.2); outline-offset: 2px; }
+.reviewResult { margin: 0 0 15px; color: #96a0b2; font-size: .67rem; font-weight: 750; letter-spacing: .04em; }
+.reviewRail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(260px, 1fr); gap: 14px; overflow-x: auto; padding: 2px 2px 20px; scroll-snap-type: x mandatory; scrollbar-color: var(--ink) transparent; }
+.reviewCard { min-height: 375px; padding: 23px 22px 18px; display: flex; flex-direction: column; scroll-snap-align: start; border: 1px solid var(--line); border-radius: 16px 16px 16px 5px; background: white; box-shadow: 0 10px 30px rgba(18,33,63,.05); }
+.reviewMeta { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 22px; }
+.reviewMeta > span { color: var(--blue); font-size: .61rem; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+.reviewStars { color: #f0ad16; font-size: .68rem; letter-spacing: .08em; white-space: nowrap; }
+.reviewStars i { color: #d7dce5; font-style: normal; }
+.reviewCard h3 { min-height: 55px; margin: 0 0 14px; font: 700 1.25rem/1.18 Georgia, serif; letter-spacing: -.025em; }
+.reviewBody { margin: 0 0 22px; color: #5b687e; font-size: .76rem; line-height: 1.65; }
+.reviewAuthor { display: flex; align-items: center; gap: 11px; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); }
+.reviewAvatar { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50% 50% 50% 9px; background: var(--sky); color: var(--blue); font: 700 .72rem/1 Georgia, serif; }
+.reviewAuthor strong, .reviewAuthor small { display: block; }
+.reviewAuthor strong { color: var(--ink); font-size: .73rem; }
+.reviewAuthor small { margin-top: 3px; color: #8b95a7; font-size: .61rem; }
+.reviewSource { margin: 14px 0 0; color: #8c96a8; font-size: .6rem; font-weight: 750; }
+.reviewSource span { margin-right: 5px; color: #249065; }
+.reviewEmpty { padding: 45px 20px; border: 1px dashed #b9c3d3; border-radius: 14px; background: white; color: var(--muted); text-align: center; font-size: .8rem; }
+
+.platformSection { position: relative; width: min(1180px, calc(100% - 40px)); min-height: 625px; margin: 0 auto 26px; padding: 72px 60px; display: grid; grid-template-columns: .78fr 1.22fr; gap: 55px; align-items: center; overflow: hidden; border-radius: 26px 26px 26px 7px; background: var(--ink-deep); color: white; box-shadow: 0 28px 70px rgba(11,23,48,.17); }
+.platformSection::before { content: "learn anywhere"; position: absolute; left: -20px; bottom: -30px; color: rgba(255,255,255,.035); font: italic 8rem/1 Georgia, serif; white-space: nowrap; pointer-events: none; }
+.platformIntro { position: relative; z-index: 2; }
+.platformIntro .sectionKicker { color: var(--sun); }
+.platformIntro h2 { margin: 0; font: 700 clamp(2.7rem, 4vw, 4.3rem)/.97 Georgia, serif; letter-spacing: -.05em; }
+.platformIntro > p:not(.sectionKicker):not(.platformNote) { margin: 23px 0 0; color: #b7c4dc; font-size: .9rem; line-height: 1.72; }
+.storeButtons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 29px; }
+.storeButtons a { min-width: 156px; min-height: 57px; padding: 9px 15px; display: flex; align-items: center; gap: 11px; border: 1px solid #425270; border-radius: 10px; background: #132544; color: white; }
+.storeButtons a:hover { border-color: var(--sun); }
+.storeButtons a > span:last-child { font-size: .77rem; font-weight: 850; line-height: 1.18; }
+.storeButtons small { display: block; margin-bottom: 2px; color: #93a4c3; font-size: .54rem; font-weight: 650; }
+.storeIcon { color: #73d49f; font-size: 1.3rem; }
+.storeIcon.apple { color: white; font-size: 1.05rem; }
+.platformNote { margin: 16px 0 0; color: #8394b2; font-size: .62rem; }
+.platformNote span { margin-right: 6px; color: #65daa0; }
+.phoneStage { position: relative; z-index: 1; min-height: 465px; perspective: 1200px; }
+.phoneStage::before { content: ""; position: absolute; inset: 11% -8% 4%; border-radius: 50%; background: radial-gradient(circle, rgba(66,116,224,.4), transparent 68%); filter: blur(15px); }
+.phoneMock { position: absolute; width: 190px; height: 390px; padding: 8px; border: 1px solid #42506a; border-radius: 29px; background: #071126; box-shadow: 0 20px 40px rgba(0,0,0,.35); transform: rotateY(-8deg); }
+.phone-1 { left: 2%; top: 8%; transform: rotate(-7deg) rotateY(-8deg); }
+.phone-2 { left: 28%; top: 0; z-index: 2; transform: rotate(-2deg) translateY(-8px); }
+.phone-3 { left: 54%; top: 8%; z-index: 3; transform: rotate(3deg) rotateY(7deg); }
+.phone-4 { left: 78%; top: 15%; transform: rotate(8deg) rotateY(10deg); }
+.phoneSpeaker { position: absolute; z-index: 2; width: 52px; height: 5px; left: 50%; top: 13px; transform: translateX(-50%); border-radius: 99px; background: #18233a; }
+.phoneScreen { height: 100%; padding: 28px 14px 15px; border-radius: 22px; background: #f7f9fd; color: var(--ink); overflow: hidden; }
+.appTop { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+.appTop span { color: var(--blue); font: italic 700 .78rem/1 Georgia, serif; }
+.appTop i { color: #8490a5; font-size: .5rem; font-style: normal; }
+.phoneScreen > p { margin: 0 0 6px; color: #8490a5; font-size: .56rem; font-weight: 850; letter-spacing: .06em; text-transform: uppercase; }
+.phoneScreen > h3 { min-height: 44px; margin: 0; font: 700 1.12rem/1.08 Georgia, serif; letter-spacing: -.025em; }
+.screenVisual { position: relative; height: 130px; margin: 17px 0 13px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 14px; background: #e6edfc; }
+.screenVisual.progress span, .screenVisual.score span { position: relative; z-index: 1; display: grid; place-items: center; width: 75px; height: 75px; border: 8px solid var(--blue); border-radius: 50%; color: var(--blue); font: 700 1.45rem/1 Georgia, serif; }
+.screenVisual.progress i { position: absolute; width: 8px; height: 8px; border-radius: 50%; background: var(--sun); }
+.screenVisual.progress i:nth-of-type(1) { left: 25px; top: 22px; }.screenVisual.progress i:nth-of-type(2) { right: 25px; top: 34px; }.screenVisual.progress i:nth-of-type(3) { left: 42px; bottom: 18px; }
+.screenVisual.class { flex-direction: column; background: #182a4e; color: white; }
+.screenVisual.class span { width: 58px; height: 58px; display: grid; place-items: center; border: 3px solid #7b98d4; border-radius: 50%; background: #294477; font: 700 1.1rem/1 Georgia, serif; }
+.screenVisual.class b { margin-top: 9px; color: #aabce0; font-size: .55rem; }
+.screenVisual.words { flex-direction: column; background: #fff1c8; }
+.screenVisual.words strong { font: 700 1.7rem/1 Georgia, serif; }.screenVisual.words em { margin: 6px 0 9px; color: #9b7716; font-size: .65rem; }.screenVisual.words b { color: #6e5c2a; font-size: .55rem; }
+.screenVisual.score { background: conic-gradient(from 180deg, #e0e9fb, #f9fbff, #dce7ff); }
+.screenVisual.score i { position: absolute; width: 95px; height: 95px; border: 1px dashed #91a9d9; border-radius: 50%; }
+.phoneScreen > small { display: block; color: #8490a5; font-size: .53rem; }
+.phoneScreen > button { width: 100%; min-height: 36px; margin-top: 13px; padding: 0 10px; display: flex; align-items: center; justify-content: space-between; border: 0; border-radius: 7px; background: var(--ink); color: white; font-size: .58rem; font-weight: 850; }
+
 .teachersSection { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 92px 0 110px; }
 .teachersHeader { display: grid; grid-template-columns: 1.1fr .9fr; gap: 80px; align-items: end; padding-bottom: 34px; border-bottom: 1px solid var(--line); }
 .sectionKicker { margin: 0 0 14px; color: var(--blue); font-size: .72rem; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
@@ -229,6 +298,11 @@ h1 em { display: block; margin-top: 18px; color: var(--blue); font-size: .58em; 
   .courseCard:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
   .courseDescription, .courseAdvantages { min-height: auto; }
   .courseHelp { grid-template-columns: 1fr; gap: 10px; }
+  .reviewsHeader { grid-template-columns: 1fr; gap: 22px; }
+  .reviewRail { grid-auto-columns: minmax(270px, 48%); }
+  .platformSection { grid-template-columns: 1fr; padding: 58px 42px; }
+  .platformIntro { max-width: 650px; }
+  .phoneStage { min-height: 440px; transform: scale(.92); transform-origin: left top; }
 }
 
 @media (max-width: 650px) {
@@ -258,6 +332,15 @@ h1 em { display: block; margin-top: 18px; color: var(--blue); font-size: .58em; 
   .courseCard h3, .coursePromise { min-height: 0; }
   .courseDescription { margin-bottom: 18px; }
   .courseHelp { padding: 18px; }
+  .reviewsSection { width: min(100% - 28px, 1180px); padding: 76px 0 54px; }
+  .reviewsHeader h2 { font-size: 2.7rem; }
+  .reviewRail { grid-auto-columns: 88%; }
+  .platformSection { width: min(100% - 28px, 1180px); min-height: 0; padding: 45px 22px 28px; }
+  .platformIntro h2 { font-size: 2.8rem; }
+  .storeButtons { flex-direction: column; }
+  .storeButtons a { width: 100%; }
+  .phoneStage { min-height: 410px; margin-top: 28px; transform: none; overflow-x: auto; display: grid; grid-auto-flow: column; grid-auto-columns: 172px; gap: 12px; scroll-snap-type: x mandatory; }
+  .phoneMock { position: relative; left: auto; top: auto; width: 172px; height: 365px; transform: none !important; scroll-snap-align: start; }
 }
 
 @media (prefers-reduced-motion: reduce) {
