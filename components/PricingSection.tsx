@@ -10,12 +10,38 @@ const offers = [
   { name: "Bire Bir Eğitim", price: "₺1.450", period: "ders başına", duration: "Kişiye özel", capacity: "1 kişi", description: "Hedefinize, seviyenize ve takviminize göre tamamen kişiselleştirilmiş içerikle eğitmeninizle bire bir çalışın.", note: "Kişisel çalışma planı ve koçluk dahil" },
 ];
 
-const options = [
-  { title: "Taksit seçenekleri", text: "Seçtiğiniz programa göre kredi kartına taksit veya aylık ödeme planı oluşturulabilir. Eğitim danışmanınız güncel seçenekleri kayıt öncesinde açıkça paylaşır." },
-  { title: "Erken kayıt indirimi", text: "Yeni dönem sınıfları açılmadan yer ayıran öğrenciler, kontenjan durumuna göre erken kayıt avantajından yararlanabilir." },
-  { title: "Grup indirimi", text: "Aynı programa birlikte kayıt olan arkadaş, aile veya çalışma grupları için kişi sayısına göre özel fiyatlandırma hazırlanabilir." },
-  { title: "Kurumsal eğitim", text: "Şirketlere özel seviye analizi, sektör odaklı içerik, ilerleme raporları ve ekip büyüklüğüne göre kurumsal teklif sunulur." },
-];
+const faqByOffer: Record<string, { title: string; text: string }[]> = {
+  "Genel İngilizce": [
+    { title: "Genel İngilizce için taksit seçenekleri nelerdir?", text: "Aylık ödeme veya kredi kartına taksit seçenekleri program dönemine göre sunulur. Kesin plan, seçtiğiniz sınıf ve eğitim süresi belirlendikten sonra hazırlanır." },
+    { title: "Genel İngilizce erken kayıt indirimi var mı?", text: "Yeni A1–C2 sınıfları açılmadan kayıt olan öğrenciler, kontenjan uygunluğuna göre erken dönem avantajından yararlanabilir." },
+    { title: "Arkadaşlarımla kayıt olursam grup indirimi uygulanır mı?", text: "Aynı kur ve sınıfa birlikte kayıt olan arkadaş veya aile grupları için kişi sayısına göre özel teklif hazırlanabilir." },
+    { title: "Genel İngilizce kurumsal ekipler için uygun mu?", text: "Evet. Ekip seviyeleri ölçüldükten sonra iş iletişimiyle desteklenen kurumsal Genel İngilizce programı oluşturulabilir." },
+  ],
+  "IELTS / TOEFL": [
+    { title: "IELTS / TOEFL programında taksit yapılabilir mi?", text: "Yoğun hazırlık programının toplam süresine göre aylık ödeme veya kredi kartına taksit planı oluşturulabilir." },
+    { title: "Sınav tarihinden önce kayıt indirimi var mı?", text: "Belirli sınav dönemleri için açılan gruplarda erken kayıt kontenjanı bulunabilir. İndirim ve son tarih seçtiğiniz sınava göre paylaşılır." },
+    { title: "Birlikte sınava hazırlananlar grup indirimi alabilir mi?", text: "Benzer hedef puan ve seviyeye sahip küçük gruplar için ortak ders planı ve grup fiyatı hazırlanabilir." },
+    { title: "Şirketler çalışanları için IELTS / TOEFL eğitimi alabilir mi?", text: "Yurt dışı görevlendirme veya akademik hedefi bulunan ekipler için sonuç raporlu kurumsal sınav hazırlık programı sunulur." },
+  ],
+  "İş İngilizcesi": [
+    { title: "İş İngilizcesi ücretini taksitle ödeyebilir miyim?", text: "Program süresi ve ders yoğunluğuna göre aylık ödeme veya kredi kartına taksit seçenekleri sunulur." },
+    { title: "İş İngilizcesinde erken kayıt avantajı var mı?", text: "Yeni akşam ve hafta sonu sınıfları için dönem başlamadan yer ayıran katılımcılara kontenjan bazlı avantaj sağlanabilir." },
+    { title: "Aynı şirketten katılanlara grup indirimi uygulanır mı?", text: "Aynı kurumdan benzer seviyedeki çalışanlar birlikte katıldığında ekip büyüklüğüne göre özel fiyatlandırma yapılabilir." },
+    { title: "Kurumsal İş İngilizcesi içeriği sektöre göre değişir mi?", text: "Evet. Toplantı, e-posta, sunum ve sektör terminolojisi şirketinizin gerçek iletişim senaryolarına göre uyarlanır." },
+  ],
+  "Online İngilizce": [
+    { title: "Online İngilizce için aylık ödeme yapılabilir mi?", text: "Online grup programlarında aylık ödeme ve uygun dönemlerde kredi kartına taksit seçenekleri sunulur." },
+    { title: "Online programda erken kayıt indirimi var mı?", text: "Yeni canlı sınıfların başlangıç tarihinden önce kayıt olan öğrenciler, müsait kontenjana göre erken kayıt fırsatından yararlanabilir." },
+    { title: "Online sınıfa arkadaş grubuyla katılabilir miyiz?", text: "Aynı seviyedeki katılımcılar için özel online grup açılabilir ve kişi sayısına göre teklif hazırlanabilir." },
+    { title: "Şirketlere özel online İngilizce eğitimi veriliyor mu?", text: "Evet. Dağıtık veya uzaktan çalışan ekipler için canlı ders, katılım takibi ve ilerleme raporu içeren kurumsal program sunulur." },
+  ],
+  "Bire Bir Eğitim": [
+    { title: "Bire bir ders paketleri taksitle alınabilir mi?", text: "Seçilen ders paketi ve toplam saate göre aylık ödeme veya kredi kartına taksit planı hazırlanabilir." },
+    { title: "Bire bir eğitimde paket indirimi var mı?", text: "Belirli sayıda dersi önceden planlayan öğrenciler için paket ve dönemsel erken kayıt avantajları sunulabilir." },
+    { title: "İki kişi birlikte özel ders alabilir mi?", text: "Seviyeleri ve hedefleri benzer iki katılımcı için yarı özel ders programı ve buna uygun fiyatlandırma oluşturulabilir." },
+    { title: "Yöneticiler için kurumsal bire bir eğitim var mı?", text: "Evet. Yönetici takvimine uyarlanan, gizlilik gerektiren iş senaryolarına ve sunum hedeflerine odaklanan özel program hazırlanır." },
+  ],
+};
 
 export function PricingSection({ city }: { city: string }) {
   const [selected, setSelected] = useState(0);
@@ -30,11 +56,11 @@ export function PricingSection({ city }: { city: string }) {
         <p>Program ücretleri ders yoğunluğu, sınıf yapısı ve eğitim süresine göre değişir. Size uygun programı seçin; örnek başlangıç fiyatını ve kapsamını karşılaştırın.</p>
       </header>
 
-      <div className="priceTabs" aria-label="Fiyatı görüntülenecek programı seçin">
-        {offers.map((item, index) => <button key={item.name} className={selected === index ? "active" : ""} onClick={() => setSelected(index)} aria-pressed={selected === index}><strong>{item.name}</strong><span>{item.price}</span><small>{item.duration} · {item.capacity}</small></button>)}
+      <div className="priceTabs" role="tablist" aria-label="Fiyatı görüntülenecek programı seçin">
+        {offers.map((item, index) => <button role="tab" id={`price-tab-${index}`} aria-controls="price-panel" aria-selected={selected === index} key={item.name} className={selected === index ? "active" : ""} onClick={() => { setSelected(index); setOpen(0); }}><strong>{item.name}</strong><span>{item.price}</span><small>{item.duration} · {item.capacity}</small></button>)}
       </div>
 
-      <div className="priceSpotlight">
+      <div className="priceSpotlight" id="price-panel" role="tabpanel" aria-labelledby={`price-tab-${selected}`}>
         <div className="priceIdentity"><span>Seçili program</span><h3>{offer.name}</h3><p>{offer.description}</p><small><i>✓</i>{offer.note}</small></div>
         <div className="priceNumber"><span>Başlangıç fiyatı</span><strong>{offer.price}</strong><small>{offer.period}</small></div>
         <div className="priceSummary"><div><span>Program süresi</span><strong>{offer.duration}</strong></div><div><span>Sınıf kontenjanı</span><strong>{offer.capacity}</strong></div><a href="#seviye-testi">Kişisel teklif alın <span>↗</span></a></div>
@@ -43,7 +69,7 @@ export function PricingSection({ city }: { city: string }) {
       <p className="priceDisclaimer">Gösterilen tutarlar örnek başlangıç fiyatlarıdır. Güncel ücret; dönem, kampanya, ders saati ve programa göre kesinleşir.</p>
 
       <div className="paymentOptions">
-        {options.map((item, index) => <article className={open === index ? "active" : ""} key={item.title}><button onClick={() => setOpen(open === index ? -1 : index)} aria-expanded={open === index}><span>{String(index + 1).padStart(2, "0")}</span><strong>{item.title}</strong><i>{open === index ? "−" : "+"}</i></button>{open === index && <p>{item.text}</p>}</article>)}
+        {faqByOffer[offer.name].map((item, index) => <article className={open === index ? "active" : ""} key={item.title}><button onClick={() => setOpen(open === index ? -1 : index)} aria-expanded={open === index}><span>{String(index + 1).padStart(2, "0")}</span><strong>{item.title}</strong><i>{open === index ? "−" : "+"}</i></button>{open === index && <p>{item.text}</p>}</article>)}
       </div>
     </section>
   );
