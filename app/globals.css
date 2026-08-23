@@ -366,6 +366,42 @@ h1 em { display: block; margin-top: 18px; color: var(--blue); font-size: .58em; 
 .cefrColumn li i { color: var(--blue); font: italic .65rem/1.4 Georgia, serif; }
 .cefrColumn.outcomes li { border-color: #2c3b58; color: #c3cee1; }
 .cefrColumn.outcomes li i { color: #62d99e; font-family: inherit; font-style: normal; font-weight: 900; }
+
+.enrollmentSection { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 100px 0 120px; }
+.enrollmentHeader { max-width: 850px; }
+.enrollmentHeader h2 { margin: 0; font: 700 clamp(2.65rem, 4.5vw, 4.7rem)/.98 Georgia, serif; letter-spacing: -.05em; }
+.enrollmentHeader > p:last-child { max-width: 720px; margin: 22px 0 0; color: var(--muted); font-size: .97rem; line-height: 1.72; }
+.enrollmentExperience { margin-top: 40px; display: grid; grid-template-columns: .92fr 1.08fr; overflow: hidden; border: 1px solid var(--line); border-radius: 24px 24px 24px 7px; background: white; box-shadow: 0 20px 60px rgba(18,33,63,.09); }
+.processVisual { position: relative; min-height: 590px; padding: 40px; display: flex; align-items: center; justify-content: center; flex-direction: column; overflow: hidden; background: var(--ink-deep); color: white; }
+.processVisual::before { content: "start here"; position: absolute; left: -12px; bottom: -18px; color: rgba(255,255,255,.035); font: italic 6.4rem/1 Georgia, serif; white-space: nowrap; }
+.processOrbit { position: absolute; left: 50%; top: 44%; transform: translate(-50%, -50%); border: 1px solid rgba(118,150,211,.28); border-radius: 50%; }
+.orbitOne { width: 330px; height: 330px; }
+.orbitTwo { width: 445px; height: 445px; border-style: dashed; }
+.processCenter { position: relative; z-index: 2; width: 225px; height: 225px; padding: 35px 24px; display: flex; align-items: center; justify-content: center; flex-direction: column; border: 1px solid #3a4d72; border-radius: 50%; background: #132544; text-align: center; box-shadow: 0 0 0 14px rgba(28,85,199,.08), 0 22px 45px rgba(0,0,0,.25); }
+.processCenter > span { color: var(--sun); font: italic 2.7rem/1 Georgia, serif; }
+.processCenter strong { margin-top: 10px; font: 700 1.45rem/1.1 Georgia, serif; }
+.processCenter small { margin-top: 9px; color: #99aace; font-size: .59rem; line-height: 1.45; }
+.processTrack { position: relative; z-index: 3; width: 100%; margin-top: 68px; display: flex; align-items: center; justify-content: space-between; }
+.processTrack::before { content: ""; position: absolute; left: 20px; right: 20px; top: 50%; height: 1px; background: #314263; }
+.processTrack button { position: relative; z-index: 1; width: 39px; height: 39px; display: grid; place-items: center; border: 1px solid #405071; border-radius: 50%; background: #10203b; color: #8797b5; font-size: .66rem; font-weight: 900; cursor: pointer; }
+.processTrack button.active { border-color: var(--sun); background: var(--sun); color: var(--ink); box-shadow: 0 0 0 7px rgba(255,201,61,.12); }
+.processTrack button.done { border-color: #5ed499; background: #173d38; color: #75e1ad; }
+.processTrack button:focus-visible, .processSteps button:focus-visible, .processDetail a:focus-visible { outline: 3px solid rgba(255,201,61,.35); outline-offset: 3px; }
+.processVisual > p { position: relative; z-index: 2; margin: 20px 0 0; color: #7487a9; font-size: .59rem; font-weight: 750; letter-spacing: .04em; }
+.processSteps { padding: 20px 0; }
+.processSteps article { border-bottom: 1px solid var(--line); }
+.processSteps article:last-child { border-bottom: 0; }
+.processSteps article.active { background: #f7f9fd; }
+.processSteps article > button { width: 100%; min-height: 84px; padding: 20px 30px; display: grid; grid-template-columns: 78px 1fr auto; gap: 18px; align-items: center; border: 0; background: transparent; color: var(--ink); text-align: left; cursor: pointer; }
+.processSteps article > button > span { color: #99a3b4; font-size: .59rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.processSteps article > button strong { font: 700 1.3rem/1.1 Georgia, serif; }
+.processSteps article > button i { color: var(--blue); font-size: 1.25rem; font-style: normal; }
+.processDetail { padding: 0 30px 28px 126px; }
+.processDetail > p { max-width: 500px; margin: 0; color: #5c697e; font-size: .78rem; line-height: 1.68; }
+.processDetail > small { display: block; margin-top: 13px; color: #8894a7; font-size: .62rem; font-weight: 750; }
+.processDetail > small span { margin-right: 6px; color: #249065; }
+.processDetail > a { width: fit-content; min-width: 200px; min-height: 47px; margin-top: 21px; padding: 0 15px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-radius: 8px; background: var(--blue); color: white; font-size: .69rem; font-weight: 900; }
+.processDetail > a:hover { background: var(--ink); }
 .srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
 @media (max-width: 920px) {
@@ -398,6 +434,8 @@ h1 em { display: block; margin-top: 18px; color: var(--blue); font-size: .58em; 
   .districtSummary { grid-column: 1 / -1; min-height: 220px !important; border-right: 0 !important; border-bottom: 1px solid var(--line); }
   .cefrProgram { grid-template-columns: 1fr 1fr; }
   .cefrOverview { grid-column: 1 / -1; min-height: 360px !important; border-right: 0 !important; border-bottom: 1px solid var(--line); }
+  .enrollmentExperience { grid-template-columns: 1fr; }
+  .processVisual { min-height: 520px; }
 }
 
 @media (max-width: 650px) {
@@ -463,6 +501,18 @@ h1 em { display: block; margin-top: 18px; color: var(--blue); font-size: .58em; 
   .cefrOverview h3 { font-size: 1.95rem; }
   .cefrFacts { gap: 22px; }
   .cefrActions { grid-template-columns: 1fr; margin-top: 28px; }
+  .enrollmentSection { width: min(100% - 28px, 1180px); padding: 72px 0 86px; }
+  .enrollmentHeader h2 { font-size: 2.7rem; }
+  .processVisual { min-height: 470px; padding: 30px 20px; }
+  .orbitOne { width: 270px; height: 270px; }
+  .orbitTwo { width: 360px; height: 360px; }
+  .processCenter { width: 190px; height: 190px; }
+  .processTrack { margin-top: 58px; }
+  .processTrack button { width: 34px; height: 34px; }
+  .processSteps article > button { min-height: 76px; padding: 17px 20px; grid-template-columns: 62px 1fr auto; gap: 10px; }
+  .processSteps article > button strong { font-size: 1.12rem; }
+  .processDetail { padding: 0 20px 25px; }
+  .processDetail > a { width: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
